@@ -7,7 +7,7 @@ export const Register = () => {
       var dataObj={
         "data":data
       }
-       const res= await fetch("http://localhost:2020/std/register",
+       const res= await fetch("9am-server-seven.vercel.app/std/register",
        {method:'post',
        headers:{
         'content-Type':'application/json',
@@ -15,9 +15,16 @@ export const Register = () => {
        body:JSON.stringify(dataObj)
       })
       const result=await res.json()
+      const {acknowledged,insertedId}=result
+      if(acknowledged && insertedId){
+        alert("success")
+      }else{
+        alert("failed")
+      }
       console.log(result)
-    }catch(ex){
+    }catch(ex:any){
       console.error(ex)
+      alert(ex.message)
     }
     }
     const handleChange=(eve:any)=>{
