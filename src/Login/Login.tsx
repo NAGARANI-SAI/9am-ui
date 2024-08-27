@@ -13,7 +13,9 @@ export const Login = () => {
            const res=await  Ajax.sendPostReq("std/login",data)
             console.log(res)
             if(res?.data?.length > 0){
+                if(sessionStorage){
                 sessionStorage.user=res?.data?.[0]?.uid
+                }
                 dispatch({type:"LOGIN",payload:{isLoggedIn:true,uid:res?.data?.[0]?.uid}})
             }else{
                alert("uid pwd is not correct") 
