@@ -7,7 +7,7 @@ export const Register = () => {
       var dataObj={
         "data":data
       }
-       const res= await fetch("9am-server-seven.vercel.app/std/register",
+       const res= await fetch("https://9am-server-seven.vercel.app/std/register",
        {method:'post',
        headers:{
         'content-Type':'application/json',
